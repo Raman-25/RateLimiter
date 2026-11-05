@@ -1,0 +1,170 @@
+﻿Apache Maven 3.10.0 (c43a36b8d67be7e0805a411bc0898af1a51f5472)
+Maven home: C:\Users\Raman\.m2\wrapper\dists\apache-maven-3.10.0\2aaba761688b1a6ea5a46e7e5f4d5406ed7a75ee8da95e5e3079863a23461c9b
+Java version: 24.0.1, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-24
+Default locale: en_IN, platform encoding: UTF-8, time zone: Asia/Calcutta
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+[DEBUG] Created lock factory selector; available lock factories [file-lock, rwlock-local, semaphore-local, noop]
+[DEBUG] Created adapter factory; available lock factories [noop, semaphore-local, file-lock, rwlock-local]; available name mappers [discriminating, file-gaecv, file-gav, file-hgaecv, file-hgav, file-static, gaecv, gav, static]
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: javax.annotation.* < plexus.core
+[DEBUG]   Imported: javax.annotation.security.* < plexus.core
+[DEBUG]   Imported: javax.inject.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution.scope < plexus.core
+[DEBUG]   Imported: org.apache.maven.graph < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.* < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.artifact < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.collection < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.deployment < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.graph < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.installation < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.metadata < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.repository < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.resolution < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.scope < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.util < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.version < plexus.core
+[DEBUG]   Imported: org.fusesource.jansi.* < plexus.core
+[DEBUG]   Imported: org.slf4j.* < plexus.core
+[DEBUG]   Imported: org.slf4j.event.* < plexus.core
+[DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
+[DEBUG]   Imported: org.slf4j.spi.* < plexus.core
+[DEBUG] Populating class realm maven.api
+[INFO] Error stacktraces are turned on.
+[DEBUG] Message scheme: plain
+[DEBUG] Message terminal: DumbTerminal[name='Maven', type='dumb-color', size='Size[cols=0, rows=0]']
+[DEBUG] Reading global settings from C:\Users\Raman\.m2\wrapper\dists\apache-maven-3.10.0\2aaba761688b1a6ea5a46e7e5f4d5406ed7a75ee8da95e5e3079863a23461c9b\conf\settings.xml
+[DEBUG] Reading user settings from C:\Users\Raman\.m2\settings.xml
+[DEBUG] Reading global toolchains from C:\Users\Raman\.m2\wrapper\dists\apache-maven-3.10.0\2aaba761688b1a6ea5a46e7e5f4d5406ed7a75ee8da95e5e3079863a23461c9b\conf\toolchains.xml
+[DEBUG] Reading user toolchains from C:\Users\Raman\.m2\toolchains.xml
+[DEBUG] Using local repository at C:\Users\Raman\.m2\repository
+[DEBUG] Selecting LocalRepositoryManager for C:\Users\Raman\.m2\repository ()
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for C:\Users\Raman\.m2\repository
+[DEBUG] Selecting LocalRepositoryManager for C:\Users\Raman\.m2\repository ()
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for C:\Users\Raman\.m2\repository
+[INFO] Scanning for projects...
+[DEBUG] Creating adapter using nameMapper 'org.eclipse.aether.internal.impl.synccontext.named.InhibitingNameMapper@62a4417' and factory 'org.eclipse.aether.named.providers.FileLockNamedLockFactory@43f61afb'
+[DEBUG] Selecting RepositoryLayout for central (https://repo.maven.apache.org/maven2, default, releases)
+[DEBUG] Using layout Maven2RepositoryLayout with priority 0.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Group rules file for remote repository central (https://repo.maven.apache.org/maven2, default, releases) not available
+[DEBUG] Skipped remote request for /.meta/prefixes.txt, locally cached metadata up-to-date
+[DEBUG] Loaded prefixes for remote repository central from auto-discovered file 'C:\Users\Raman\.m2\repository\.meta\prefixes-central.txt'
+[INFO] Loaded 24375 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[DEBUG] Extension realms for project com.SD:RateLimiter:jar:0.0.1-SNAPSHOT: (none)
+[DEBUG] Looking up lifecycle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
+[DEBUG] Accepting locally cached artifact okhttp-bom-4.12.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact artemis-bom-2.53.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact artemis-project-2.53.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact apache-37.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact assertj-bom-3.27.7.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact zipkin-reporter-bom-3.5.3.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact brave-bom-6.3.1.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact groovy-bom-5.0.8.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact infinispan-bom-16.1.4.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Selecting RepositoryLayout for central-snapshots (https://central.sonatype.com/repository/maven-snapshots, default, snapshots)
+[DEBUG] Using layout Maven2RepositoryLayout with priority 0.0 for https://central.sonatype.com/repository/maven-snapshots
+[DEBUG] Group rules file for remote repository central-snapshots (https://central.sonatype.com/repository/maven-snapshots, default, snapshots) not available
+[DEBUG] /.meta/prefixes.txt was not found in https://central.sonatype.com/repository/maven-snapshots during a previous attempt. This failure was cached in the local repository and resolution is not be reattempted until the update interval of central-snapshots has elapsed or updates are forced
+[DEBUG] Prefix file for remote repository central-snapshots (https://central.sonatype.com/repository/maven-snapshots, default, snapshots) not available
+[DEBUG] Accepting locally cached artifact jackson-parent-2.21.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact oss-parent-75.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact oss-parent-79.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact junit-bom-6.0.3.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact kotlin-bom-2.3.21.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact kotlinx-coroutines-bom-1.10.2.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact kotlinx-serialization-bom-1.11.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact log4j-bom-2.25.5.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact mockito-bom-5.23.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact mongodb-driver-bom-5.8.1.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact neo4j-java-driver-bom-6.1.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact neo4j-bolt-connection-bom-11.0.2.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact oss-parent-7.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact opentelemetry-bom-1.62.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact prometheus-metrics-bom-1.7.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact client_java_parent-1.7.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact simpleclient_bom-0.16.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact parent-0.16.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact apache-35.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact querydsl-bom-5.1.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact rsocket-bom-1.1.5.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact selenium-bom-4.43.0.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact spring-session-bom-4.1.1.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[DEBUG] Accepting locally cached artifact testcontainers-bom-2.0.5.pom via legacy tracking key 'central' (current key function would produce 'central-8fac3ebd6edbaca3c794783fa38088af0aa128e7'); the entry will be upgraded on next download
+[ERROR] [ERROR] Some problems were encountered while processing the POMs:
+[ERROR] 'dependencies.dependency.version' for org.springframework.cloud:spring-cloud-starter-gateway:jar is missing. @ line 38, column 15
+ @ 
+[ERROR] The build could not read 1 project -> [Help 1]
+org.apache.maven.project.ProjectBuildingException: Some problems were encountered while processing the POMs:
+[ERROR] 'dependencies.dependency.version' for org.springframework.cloud:spring-cloud-starter-gateway:jar is missing. @ line 38, column 15
+
+    at org.apache.maven.project.DefaultProjectBuilder.build (DefaultProjectBuilder.java:401)
+    at org.apache.maven.graph.DefaultGraphBuilder.collectProjects (DefaultGraphBuilder.java:355)
+    at org.apache.maven.graph.DefaultGraphBuilder.getProjectsForMavenReactor (DefaultGraphBuilder.java:345)
+    at org.apache.maven.graph.DefaultGraphBuilder.build (DefaultGraphBuilder.java:79)
+    at org.apache.maven.DefaultMaven.buildGraph (DefaultMaven.java:459)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:203)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:179)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:1017)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:299)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:219)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:104)
+    at java.lang.reflect.Method.invoke (Method.java:565)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+[ERROR]   
+[ERROR]   The project com.SD:RateLimiter:0.0.1-SNAPSHOT (C:\Users\Raman\Desktop\RateLimiter\pom.xml) has 1 error
+[ERROR]     'dependencies.dependency.version' for org.springframework.cloud:spring-cloud-starter-gateway:jar is missing. @ line 38, column 15
+[ERROR] 
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+[DEBUG] Shutting down used lock factories [file-lock]
+[DEBUG] Shutting down 'file-lock' factory
