@@ -15,7 +15,7 @@ initial_tokens=$(echo "$initial_status" | grep -o '"availableTokens":[0-9]*' | g
 
 # Make requests (parallel — all 12 at once)
 echo "4. Making 12 requests (capacity is 10)..."
-results=$(seq 1 12 | xargs -n1 -P12 -I{} curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8080/api/test)
+results=$(yes "http://localhost:8080/api/test" | head -12 | xargs -n1 -P12 curl -s -o /dev/null -w "%{http_code}\n" | tr -d '\r')
 
 success_count=0
 blocked_count=0
