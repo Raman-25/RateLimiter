@@ -149,7 +149,7 @@ Keys are `rate_limiter:tokens:<clientId>` and `rate_limiter:last_refill:<clientI
 
 ## 📸 Screenshots
 
-<img src="docs/screenshots/test-passed.png" alt="Test run — 10 allowed, 2 blocked" width="100%">
+<img src="docs/test-passed.png" alt="Test run — 10 allowed, 2 blocked" width="100%">
 
 ## 🗂️ Project Structure
 
