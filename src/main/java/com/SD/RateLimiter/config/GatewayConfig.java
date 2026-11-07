@@ -19,7 +19,23 @@ public class GatewayConfig {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder){
 
+        // Per-route limits: strict for login
+        TokenBucketRateLimiterFilter.Config loginConfig = new TokenBucketRateLimiterFilter.Config();
+        loginConfig.setLoginCapacity(5);
+        loginConfig.setLoginRefillRate(2);
+
         return builder.routes()
+
+                // Per-route limits: strict for login
+                .route("login-route", r -> r
+                        .path("/api/auth/login")
+                        .filters(f -> f
+                                .stripPrefix(1)
+                                .filter(tokenBucketRateLimiterFilter.apply(loginConfig)))
+                        .uri(rateLimiterProperties.getApiServerUrl()))
+
+
+                // Everything else — normal limit
                 .route("api-route", r->r     //route's ID
                         .path("/api/**")    //path to route
                         .filters(f->f

@@ -15,8 +15,8 @@ public class RedisTokenBucketService {
 
     //these are the prefixes + //pattern
     //rate_limiter:{type}:{client_id}
-    private final String TOKEN_KEY_PREFIX = "rate-_limiter:tokens:";
-    private final String LAST_REFILL_KEY_PREFIX = "rate-_limiter:last_refill:";
+    private final String TOKEN_KEY_PREFIX = "rate_limiter:tokens:";
+    private final String LAST_REFILL_KEY_PREFIX = "rate_limiter:last_refill:";
 
     //rate_limiter:tokens:192.153.1.100 >"7" //token count for that ip
     //rate_limiter:last_refill:192.153.1.100 >"12345678"
@@ -67,8 +67,8 @@ public class RedisTokenBucketService {
         String lastRefillStr = jedis.get(lastRefillKey);
 
         if (lastRefillStr == null) {
-            jedis.set(tokenKey, String.valueOf(properties.getCapacity())); //set the token 20
-            jedis.set(lastRefillKey, String.valueOf(now));  //set the time now
+            jedis.setex(tokenKey,3600, String.valueOf(properties.getCapacity())); //set the token 20
+            jedis.setex(lastRefillKey,3600, String.valueOf(now));  //set the time now + //TTl - 1hour
             return;
         }
 
@@ -90,8 +90,8 @@ public class RedisTokenBucketService {
         long currentTokens = Long.parseLong(tokenStr);
         long newTokens = Math.min(properties.getCapacity(), currentTokens + tokenToAdd);  //ensure that token is not more than the capacity
 
-        jedis.set(tokenKey, String.valueOf(newTokens));
-        jedis.set(lastRefillKey, String.valueOf(now));
+        jedis.setex(tokenKey, 3600,String.valueOf(newTokens));
+        jedis.setex(lastRefillKey,3600, String.valueOf(now));
 
 
     }

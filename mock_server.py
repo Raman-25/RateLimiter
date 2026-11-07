@@ -4,7 +4,7 @@ Simple HTTP mock server using only standard library.
 Runs on port 8081.
 """
 
-from http.server import HTTPServer, BaseHTTPRequestHandler
+from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 import json
 
 class MockHandler(BaseHTTPRequestHandler):
@@ -35,7 +35,7 @@ class MockHandler(BaseHTTPRequestHandler):
 
 if __name__ == '__main__':
     port = 8081
-    server = HTTPServer(('localhost', port), MockHandler)
+    server = ThreadingHTTPServer(('localhost', port), MockHandler)
     print(f"Starting mock server on http://localhost:{port}")
     print("Press Ctrl+C to stop")
     try:
