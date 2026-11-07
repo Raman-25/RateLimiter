@@ -26,9 +26,9 @@ echo "$initial_status" | jq . 2>/dev/null || echo "$initial_status"
 initial_tokens=$(echo "$initial_status" | jq -r '.availableTokens' 2>/dev/null || echo "unknown")
 echo ""
 
-# 4. Fire 30 requests in parallel
-echo "4. Making 30 requests in parallel (capacity is 10)..."
-results=$(seq 1 30 | xargs -n1 -P30 curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8080/api/test)
+# 4. Fire 100 requests in parallel
+echo "4. Making 100 requests in parallel (capacity is 10)..."
+results=$(seq 1 100 | xargs -n1 -P30 -I{} curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8080/api/test)
 
 success_count=$(echo "$results" | grep -c "^200$")
 blocked_count=$(echo "$results" | grep -c "^429$")
