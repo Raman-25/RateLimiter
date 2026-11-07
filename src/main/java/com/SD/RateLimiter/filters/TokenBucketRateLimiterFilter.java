@@ -33,7 +33,7 @@ public class TokenBucketRateLimiterFilter extends AbstractGatewayFilterFactory<T
     }
 
     @Override  // actual filter that runs on every request
-    public GatewayFilter apply(Config config){
+    public GatewayFilter apply(Config config) {
 
         return (exchange, chain) -> {
 
@@ -43,34 +43,31 @@ public class TokenBucketRateLimiterFilter extends AbstractGatewayFilterFactory<T
 
 
             //wrap the blocking call
-             Mono.fromCallable(() -> rateLimiterService.isAllowed(clientId))
-                    .subscribeOn(Schedulers.boundedElastic())  //force mono to run on the bounded elastic pool the extra working thread
-                    .flatMap(allowed -> {
-                        if (!allowed) {
-                            response.setStatusCode(HttpStatus.TOO_MANY_REQUESTS);
-                            response.getHeaders().setContentType(MediaType.APPLICATION_JSON); //prase it as JSON
+            return
+                    Mono.fromCallable(() -> rateLimiterService.isAllowed(clientId))
+                            .subscribeOn(Schedulers.boundedElastic())  //force mono to run on the bounded elastic pool the extra working thread
+                            .flatMap(allowed -> {
+                                if (!allowed) {
+                                    response.setStatusCode(HttpStatus.TOO_MANY_REQUESTS);
+                                    response.getHeaders().setContentType(MediaType.APPLICATION_JSON); //prase it as JSON
 
-                            addRateLimitHeaders(response, clientId);
-                            response.getHeaders().add("Retry-After", "1");
+                                    addRateLimitHeaders(response, clientId);
+                                    response.getHeaders().add("Retry-After", "1");
 
-                            String errorBody = String.format(
-                                    "{\"error\":\"Rate limit exceeded\",\"clientId\":\"%s\"}",
-                                    clientId
-                            );//Error message
+                                    String errorBody = String.format(
+                                            "{\"error\":\"Rate limit exceeded\",\"clientId\":\"%s\"}",
+                                            clientId
+                                    );//Error message
 
-                            return response.writeWith(
-                                    Mono.just(response.bufferFactory().wrap(errorBody.getBytes(StandardCharsets.UTF_8)))
-                            ); //take the JSON text, turn to byte, wrap it for network
-                        }
+                                    return response.writeWith(
+                                            Mono.just(response.bufferFactory().wrap(errorBody.getBytes(StandardCharsets.UTF_8)))
+                                    ); //take the JSON text, turn to byte, wrap it for network
+                                }
 
-                        return chain.filter(exchange).then(Mono.fromRunnable(() -> {
-                            addRateLimitHeaders(response, clientId);
-                        }));
-                    });
-
-            return chain.filter(exchange).then(Mono.fromRunnable(() -> {
-                addRateLimitHeaders(response, clientId);
-            })); //ALLOWED-passes the request to the next filter and add the headers
+                                return chain.filter(exchange).then(Mono.fromRunnable(() -> {
+                                    addRateLimitHeaders(response, clientId);
+                                }));//ALLOWED-passes the request to the next filter and add the headers
+                            });
         };
     }
 
