@@ -14,13 +14,19 @@ initial_status=$(curl -s http://localhost:8080/gateway/rate-limit/status)
 initial_tokens=$(echo "$initial_status" | grep -o '"availableTokens":[0-9]*' | grep -o '[0-9]*$')
 
 # Make requests (parallel — all 12 at once, one curl process)
+# Each request carries its number (?n=1..12) so results print in request order.
+# Without the tag, blocked 429s would show up first — they finish faster than
+# 200s because they never go to the mock, they come straight back from the filter.
 echo "4. Making 12 requests (capacity is 10)..."
-results=$(curl -Z -s -o /dev/null -w "%{http_code}\n" $(yes "http://localhost:8080/api/test" | head -12) | tr -d '\r')
+results=$(curl -Z -s -o /dev/null -w "%{url_effective} %{http_code}\n" $(for i in $(seq 1 12); do echo "http://localhost:8080/api/test?n=$i"; done) | tr -d '\r' | sort -t= -k2 -n)
 
 success_count=0
 blocked_count=0
 i=0
-for code in $results; do
+while read -r url code; do
+    if [ -z "$code" ]; then
+        continue
+    fi
     i=$((i+1))
     if [ "$code" = "200" ]; then
         echo -e "  Request $i: ${GREEN}✓ Allowed (200)${NC}"
@@ -31,7 +37,7 @@ for code in $results; do
     else
         echo -e "  Request $i: ${YELLOW}? Status ($code)${NC}"
     fi
-done
+done <<< "$results"
 echo ""
 
 # Final status
