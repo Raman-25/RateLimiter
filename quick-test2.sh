@@ -9,23 +9,27 @@ RED='\033[0;31m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-# Make requests
+# Initial tokens
+initial_status=$(curl -s http://localhost:8080/gateway/rate-limit/status)
+initial_tokens=$(echo "$initial_status" | grep -o '"availableTokens":[0-9]*' | grep -o '[0-9]*$')
+
+# Make requests (parallel — all 12 at once)
 echo "4. Making 12 requests (capacity is 10)..."
+results=$(seq 1 12 | xargs -n1 -P12 -I{} curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8080/api/test)
+
 success_count=0
 blocked_count=0
-
-for i in {1..12}; do
-    response=$(curl -s -w "\n%{http_code}" http://localhost:8080/api/test 2>/dev/null)
-    http_code=$(echo "$response" | tail -n1)
-    
-    if [ "$http_code" = "200" ]; then
+i=0
+for code in $results; do
+    i=$((i+1))
+    if [ "$code" = "200" ]; then
         echo -e "  Request $i: ${GREEN}✓ Allowed (200)${NC}"
         ((success_count++))
-    elif [ "$http_code" = "429" ]; then
+    elif [ "$code" = "429" ]; then
         echo -e "  Request $i: ${RED}✗ Blocked (429)${NC}"
         ((blocked_count++))
     else
-        echo -e "  Request $i: ${YELLOW}? Status ($http_code)${NC}"
+        echo -e "  Request $i: ${YELLOW}? Status ($code)${NC}"
     fi
 done
 echo ""
@@ -33,8 +37,8 @@ echo ""
 # Final status
 echo "5. Final Rate Limit Status:"
 final_status=$(curl -s http://localhost:8080/gateway/rate-limit/status)
-echo "$final_status" | jq . 2>/dev/null || echo "$final_status"
-final_tokens=$(echo "$final_status" | jq -r '.availableTokens' 2>/dev/null || echo "unknown")
+echo "$final_status"
+final_tokens=$(echo "$final_status" | grep -o '"availableTokens":[0-9]*' | grep -o '[0-9]*$')
 echo ""
 
 # Summary
@@ -50,4 +54,3 @@ if [ "$success_count" -eq 10 ] && [ "$blocked_count" -eq 2 ]; then
 else
     echo -e "${YELLOW}⚠ Test results unexpected. Check configuration.${NC}"
 fi
-
