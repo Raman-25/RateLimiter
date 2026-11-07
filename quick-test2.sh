@@ -18,11 +18,7 @@ initial_tokens=$(echo "$initial_status" | grep -o '"availableTokens":[0-9]*' | g
 # Without the tag, blocked 429s would show up first — they finish faster than
 # 200s because they never go to the mock, they come straight back from the filter.
 echo "4. Making 12 requests (capacity is 10)..."
-urls=()
-for i in $(seq 1 12); do
-    urls+=(-o /dev/null "http://localhost:8080/api/test?n=$i")
-done
-results=$(curl -Z -s -w "%{url_effective} %{http_code}\n" "${urls[@]}" | tr -d '\r' | sort -t= -k2 -n)
+results=$(for i in $(seq 1 12); do echo "http://localhost:8080/api/test?n=$i"; done | xargs -n1 -P12 curl -s -o /dev/null -w "%{url_effective} %{http_code}\n" | tr -d '\r' | sort -t= -k2 -n)
 
 success_count=0
 blocked_count=0
